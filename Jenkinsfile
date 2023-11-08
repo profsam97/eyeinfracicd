@@ -21,7 +21,7 @@ pipeline {
             }
         }
         //for code linting 
-        stage('Code linting') {
+        stage('Code linting for client') {
             steps {
                 echo 'Running code linting'
                 sh 'cd client'
@@ -30,7 +30,7 @@ pipeline {
                 sh 'npx eslint '
             }
         }
-        stage('build') {
+        stage('build for cleint') {
             steps {
             echo 'Building project'
             sh 'cd client'
@@ -45,7 +45,7 @@ pipeline {
             }
         }
         //for code linting 
-        stage('Code linting') {
+        stage('Code linting for server') {
             steps {
                 echo 'Running code linting'
                 sh 'cd server'
@@ -54,7 +54,7 @@ pipeline {
                 sh 'npx eslint '
             }
         }
-        stage('build') {
+        stage('build for server') {
             steps {
             echo 'Building project'
             sh 'cd server'
@@ -85,14 +85,14 @@ pipeline {
             }
         }
 
-         stage("Build App Image") {
+         stage("Build App Image for server") {
             steps {
                 script {
                     dockerImage = docker.build("$registry1:V$BUILD_NUMBER") 
                 }
             }
         }
-        stage("Upload Image to Docker Hub") {
+        stage("Upload Image to Docker Hub for server") {
             steps {
                 script {
                     docker.withRegistry('', registryCredential) {
@@ -102,7 +102,7 @@ pipeline {
                 }
             }
         }
-          stage("Remove Docker Image") {  
+          stage("Remove server Docker Image") {  
             steps {
                 sh "docker rmi $registry1:V$BUILD_NUMBER"
             }
