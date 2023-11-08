@@ -17,7 +17,9 @@ pipeline {
         stage('Install for client') {
             steps {
             echo  'installing dependencies'
+            sh 'ls'
             sh 'cd client && npm install'
+            sh 'ls'
             }
         }
         //for code linting 
@@ -32,9 +34,9 @@ pipeline {
         stage('build for cleint') {
             steps {
             echo 'Building project'
-            sh 'cd client'
             sh 'ls'
-            sh 'npm run build'
+            sh 'cd client && npm run build'
+            sh 'ls'
             }
         }
 
