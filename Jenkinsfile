@@ -32,6 +32,7 @@ pipeline {
         stage('build for cleint') {
             steps {
             echo 'Building project'
+            sh 'cd client'
             sh 'ls'
             sh 'npm run build'
             }
