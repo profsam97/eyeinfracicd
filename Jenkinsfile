@@ -24,7 +24,6 @@ pipeline {
         stage('Code linting for client') {
             steps {
                 echo 'Running code linting'
-                sh 'cd client'
                 sh 'npm install eslint'
                 sh 'npm init @eslint/config'
                 sh 'npx eslint '
@@ -33,6 +32,7 @@ pipeline {
         stage('build for cleint') {
             steps {
             echo 'Building project'
+            sh 'ls'
             sh 'npm run build'
             }
         }
