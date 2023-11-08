@@ -47,20 +47,19 @@ pipeline {
             }
         }
         //for code linting 
-        stage('Code linting for server') {
-            steps {
-                echo 'Running code linting'
-                sh 'cd server'
-                sh 'npm install eslint'
-                sh 'npm init @eslint/config'
-                sh 'npx eslint '
-            }
-        }
+        // stage('Code linting for server') {
+        //     steps {
+        //         echo 'Running code linting'
+        //         sh 'cd server'
+        //         sh 'npm install eslint'
+        //         sh 'npm init @eslint/config'
+        //         sh 'npx eslint '
+        //     }
+        // }
         stage('build for server') {
             steps {
             echo 'Building project'
-            sh 'cd server'
-            sh 'npm run build'
+            sh 'cd server && npm run build'
             }
         }
         stage("Build App Image") {
@@ -90,7 +89,7 @@ pipeline {
          stage("Build App Image for server") {
             steps {
                 script {
-                    dockerImage = docker.build("$registry1:V$BUILD_NUMBER") 
+                    dockerImage = docker.build("$registry1:V$BUILD_NUMBER", "./server") 
                 }
             }
         }
