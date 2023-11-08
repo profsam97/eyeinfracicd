@@ -5,15 +5,10 @@ import {ListItemIcon, MenuList, Typography} from "@mui/material";
 import Paper from "@mui/material/Paper";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemText from "@mui/material/ListItemText";
-import {
-    Cloud,
-    ContentCopy,
-    ContentCut,
-    ContentPaste,
-    DarkModeOutlined,
-    FormatBold, FormatColorTextOutlined,
-    LightModeOutlined
-} from "@mui/icons-material";
+import LightModeOutlined from "@mui/icons-material/LightModeOutlined";
+import FormatColorTextOutlined from "@mui/icons-material/FormatColorTextOutlined";
+import FormatBold from "@mui/icons-material/FormatBold";
+import DarkModeOutlined from "@mui/icons-material/DarkModeOutlined";
 import Divider from "@mui/material/Divider";
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import FontDownloadIcon from '@mui/icons-material/FontDownload';
