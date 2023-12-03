@@ -31,7 +31,7 @@ pipeline {
                 sh 'npx eslint '
             }
         }
-        stage('build for cleint') {
+        stage('build for client') {
             steps {
             echo 'Building project'
             sh 'ls'
@@ -56,7 +56,7 @@ pipeline {
         //         sh 'npx eslint '
         //     }
         // }
-        stage('build for server') {
+        stage('build for client') {
             steps {
             echo 'Building project'
             sh 'cd server && npm run build'
